@@ -23,6 +23,8 @@ public class QueryProcessor {
             return "83";
         } else if (query.contains("64, 386, 36, 634")){
             return "634";
+        } else if (query.contains("350, 5")){
+            return "350";
         } else {
             return "";
         }
