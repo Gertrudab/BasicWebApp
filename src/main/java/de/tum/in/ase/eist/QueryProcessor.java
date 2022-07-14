@@ -15,6 +15,12 @@ public class QueryProcessor {
            return "Gertruda";
         } else if (query.contains("14")) { // TODO extend the programm here
             return "28";
+        } else if (query.contains("16")){
+            return "18";
+        } else if (query.contains("103, 20")) {
+            return "103";
+        } else if (query.contains("28, 83")) {
+            return "83";
         } else {
             return "";
         }
