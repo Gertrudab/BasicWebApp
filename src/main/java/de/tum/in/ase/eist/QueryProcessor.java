@@ -14,15 +14,29 @@ public class QueryProcessor {
         } else if (query.contains("your name")) {
            return "Gertruda";
         } else if (query.contains("plus")){
+            int start = query.indexOf("is") + 3;
+            int plus = query.indexOf("plus") + 5;
+            String first = query.substring(start, plus - 6);
+            String second = query.substring(plus);
+            int f = Integer.parseInt(first);
+            int s = Integer.parseInt(second);
+            return Integer.toString(f + s);
+        } else if (query.contains("is the largest")) {
             query = query.replaceAll("[^\\d]", " ");
             query = query.trim();
             String[] values = query.split(" ");
             int[] integers = new int[values.length];
-            integers[0] = Integer.parseInt(values[0].trim());
-            integers[1] = Integer.parseInt(values[1].trim());
-            return Integer.toString(integers[0] + integers[1]);
+            for (int i = 0; i < integers.length; i++) {
+                integers[i] = Integer.parseInt(values[i].trim());
+            }
+            return "";
         } else {
             return "";
         }
+    }
+
+    public static void main(String[] args) {
+        QueryProcessor processor = new QueryProcessor();
+        System.out.println(processor.process(" what is 2 plus 10"));
     }
 }

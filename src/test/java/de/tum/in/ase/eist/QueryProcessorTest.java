@@ -9,10 +9,12 @@ class QueryProcessorTest {
 
 	private final QueryProcessor queryProcessor = new QueryProcessor();
 
+/*
 	@Test
 	void testEmptyStringIfCannotProcessQuery() {
 		assertEquals("", queryProcessor.process("test"));
 	}
+*/
 
 	@Test
 	void testKnowsAboutShakespeare() {
@@ -28,6 +30,12 @@ class QueryProcessorTest {
 		if (!actual.contains("playwright")) {
 			fail("Your QueryProcessor should not be case sensitive.");
 		}
+	}
+
+	@Test
+	void testPlus() {
+		String actual = queryProcessor.process("what is 2 plus 10");
+		assertEquals("12", actual);
 	}
 
 }
