@@ -13,18 +13,14 @@ public class QueryProcessor {
                     "writer in the English language and the world's pre-eminent dramatist.";
         } else if (query.contains("your name")) {
            return "Gertruda";
-        } else if (query.contains("14")) { // TODO extend the programm here
-            return "28";
-        } else if (query.contains("16")){
-            return "18";
-        } else if (query.contains("103, 20")) {
-            return "103";
-        } else if (query.contains("28, 83")) {
-            return "83";
-        } else if (query.contains("64, 386, 36, 634")){
-            return "634";
-        } else if (query.contains("350, 5")){
-            return "350";
+        } else if (query.contains("plus")){
+            query = query.replaceAll("[^\\d]", " ");
+            query = query.trim();
+            String[] values = query.split(" ");
+            int[] integers = new int[values.length];
+            integers[0] = Integer.parseInt(values[0].trim());
+            integers[1] = Integer.parseInt(values[1].trim());
+            return Integer.toString(integers[0] + integers[1]);
         } else {
             return "";
         }
